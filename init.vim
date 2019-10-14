@@ -11,6 +11,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'justinmk/vim-sneak'
+    Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 filetype plugin on
@@ -39,8 +40,6 @@ map F <Plug>Sneak_S
 " general mappings
 nnoremap oo o<Esc>
 nnoremap OO O<Esc>
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
 tnoremap jj <C-\><C-n>
 inoremap jj <Esc>`^
 
