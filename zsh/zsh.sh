@@ -1,12 +1,18 @@
-# theme
+# zsh variables
 ZSH_THEME="robbyrussell"
- 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=blue,bold"
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+
 # plugins
 plugins=(
+    alias-tips
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
+
+# map <Ctrl-space> to accept autosuggestions
+bindkey '^ ' autosuggest-accept
 
 # vi-mode
 bindkey -v
