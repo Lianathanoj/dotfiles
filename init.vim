@@ -14,32 +14,41 @@ call plug#end()
 
 filetype plugin on
 
-"automatically source config on save
-autocmd! bufwritepost $CONFIG source $CONFIG
+" set timeout to reduce visual mode remaps
+set timeoutlen=300
 
-"start NERDTree if folder is opened
+" start NERDTree if folder is opened
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
-"NERDTree mappings
+" NERDTree mappings
 nnoremap <C-o> :NERDTreeFind<CR>
 nnoremap <C-n> :NERDTree<CR>
 
-"fzf mappings
+let g:NERDTreeIgnore = ['^node_modules$']
+
+" fzf mappings
 nnoremap <C-f> :Rg<CR>
 nnoremap <C-g> :Files<CR>
 
-"general mappings
+" general mappings
 nnoremap oo o<Esc>
+nnoremap OO O<Esc>
 nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
 tnoremap jj <C-\><C-n>
 inoremap jj <Esc>`^
 
-"share clipboard between terminals
+" share clipboard between terminals
 set clipboard+=unnamedplus
 
-"highlighting options
+" return to same line number of recently-closed file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
+" highlighting options
 let g:incsearch#auto_nohlsearch = 1
 map n  <Plug>(incsearch-nohl-n)
 map N  <Plug>(incsearch-nohl-N)
@@ -51,12 +60,19 @@ map g# <Plug>(incsearch-nohl-g#)
 hi search ctermfg=black
 hi search ctermbg=blue
 
-"use deoplete
+" deoplete config
 let g:deoplete#enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
+" appearance
 set tabstop=4 shiftwidth=4 expandtab
 set hlsearch
 set ruler
 set number
 set ignorecase
 set smartcase
+set cursorline
+
+" automatically source config on save
+autocmd! bufwritepost $NVIM_CONFIG source $NVIM_CONFIG 
+
