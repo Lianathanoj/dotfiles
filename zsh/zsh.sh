@@ -2,9 +2,11 @@
 ZSH_THEME="robbyrussell"
  
 # plugins
-plugins=(git)
-plugins=(zsh-autosuggestions)
-plugins=(zsh-syntax-highlighting)
+plugins=(
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
 
 # vi-mode
 bindkey -v
