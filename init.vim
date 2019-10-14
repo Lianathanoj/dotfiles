@@ -16,6 +16,9 @@ call plug#end()
 
 filetype plugin on
 
+" remap leader
+let mapleader = "\<Space>"
+
 " set timeout to reduce visual mode remaps
 set timeoutlen=300
 
@@ -43,8 +46,19 @@ nnoremap OO O<Esc>
 tnoremap jj <C-\><C-n>
 inoremap jj <Esc>`^
 
+" mappings for splitting windows
+nnoremap <C-w>- <C-w>s
+nnoremap <C-w>\ <C-w>v
+
 " share clipboard between terminals
 set clipboard+=unnamedplus
+
+" use persistent history
+if !isdirectory("/tmp/.vim-undo-dir")
+    call mkdir("/tmp/.vim-undo-dir", "", 0700)
+endif
+set undodir=/tmp/.vim-undo-dir
+set undofile
 
 " return to same line number of recently-closed file
 if has("autocmd")
@@ -76,9 +90,12 @@ set number
 set ignorecase
 set smartcase
 set cursorline
-:set number relativenumber
-:set nu rnu
+set number relativenumber
+set nu rnu
+
+" open new split panes to the bottom right
+set splitbelow
+set splitright
 
 " automatically source config on save
 autocmd! bufwritepost $NVIM_CONFIG source $NVIM_CONFIG 
-
