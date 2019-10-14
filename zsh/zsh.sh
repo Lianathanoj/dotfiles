@@ -35,6 +35,13 @@ source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/zsh/work_zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# custom source function
+function source-all() {
+    source $HOME/.zshrc
+    tmux source-file $HOME/.tmux.conf
+}
+alias sa=source-all
+
 # remap <Ctrl-f> and <Ctrl-g> to use fzf; requires ~/.fzf.zsh to be sourced
  bindkey '^F' fzf-history-widget
  bindkey '^G' fzf-file-widget
