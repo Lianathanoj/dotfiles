@@ -10,6 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'sheerun/vim-polyglot'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
+    Plug 'justinmk/vim-sneak'
 call plug#end()
 
 filetype plugin on
@@ -30,6 +31,10 @@ let g:NERDTreeIgnore = ['^node_modules$']
 " fzf mappings
 nnoremap <C-f> :Rg<CR>
 nnoremap <C-g> :Files<CR>
+
+" sneak mappings
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
 
 " general mappings
 nnoremap oo o<Esc>
@@ -72,6 +77,8 @@ set number
 set ignorecase
 set smartcase
 set cursorline
+:set number relativenumber
+:set nu rnu
 
 " automatically source config on save
 autocmd! bufwritepost $NVIM_CONFIG source $NVIM_CONFIG 
