@@ -51,6 +51,9 @@ inoremap jj <Esc>`^
 nnoremap <C-w>- <C-w>s
 nnoremap <C-w>\ <C-w>v
 
+" mapping for yanking file name to register
+nnoremap cp :let @* = expand("%:p")<CR>
+
 " share clipboard between terminals
 set clipboard+=unnamedplus
 
