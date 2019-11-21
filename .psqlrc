@@ -1,0 +1,13 @@
+\set QUIET 1
+
+\set PROMPT1 '%[%033[1m%][%/] # '
+\set HISTFILE ~/.psql_history- :DBNAME
+\set VERBOSITY verbose
+
+\timing
+
+\x auto
+\pset pager off
+\pset null '(null)'
+
+\unset QUIET
