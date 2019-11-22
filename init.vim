@@ -45,6 +45,8 @@ map F <Plug>Sneak_S
 nnoremap oo o<Esc>
 nnoremap OO O<Esc>
 nnoremap <leader>dd "_dd
+nnoremap t2 :set tabstop=2 shiftwidth=2 expandtab<CR>
+nnoremap t4 :set tabstop=4 shiftwidth=4 expandtab<CR>
 tnoremap jj <C-\><C-n>
 inoremap jj <Esc>`^
 
