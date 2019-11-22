@@ -44,6 +44,7 @@ map F <Plug>Sneak_S
 " general mappings
 nnoremap oo o<Esc>
 nnoremap OO O<Esc>
+nnoremap <leader>dd "_dd
 tnoremap jj <C-\><C-n>
 inoremap jj <Esc>`^
 
