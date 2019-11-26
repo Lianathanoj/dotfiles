@@ -27,6 +27,9 @@ set timeoutlen=300
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
+" quit vim if NERDTree is the last buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " NERDTree mappings
 nnoremap <C-o> :NERDTreeFind<CR>
 nnoremap <C-n> :NERDTree<CR>
@@ -45,14 +48,36 @@ map F <Plug>Sneak_S
 nnoremap oo o<Esc>
 nnoremap OO O<Esc>
 nnoremap <leader>dd "_dd
-nnoremap t2 :set tabstop=2 shiftwidth=2 expandtab<CR>
-nnoremap t4 :set tabstop=4 shiftwidth=4 expandtab<CR>
 tnoremap jj <C-\><C-n>
 inoremap jj <Esc>`^
+
+" mappings for setting indentation
+nnoremap t2 :set tabstop=2 shiftwidth=2 expandtab<CR>
+nnoremap t4 :set tabstop=4 shiftwidth=4 expandtab<CR>
+
+" mappings for centering search results
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+" mappings for scrolling up and down quickly
+nnoremap J 5j
+nnoremap K 5k
+vnoremap J 5j
+vnoremap K 5k
 
 " mappings for splitting windows
 nnoremap <C-w>- <C-w>s
 nnoremap <C-w>\ <C-w>v
+
+" mappings for resizing vim windows
+nnoremap <Leader><Up> 10<C-w>+
+nnoremap <Leader><Down> 10<C-w>-
+nnoremap <Leader><Right> 10<C-w>>
+nnoremap <Leader><Left> 10<C-w><
 
 " mapping for yanking file name to register
 nnoremap cp :let @* = expand("%:p")<CR>
@@ -70,7 +95,7 @@ set undofile
 " return to same line number of recently-closed file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
+    \| exe "normal! g'\" zz" | endif
 endif
 
 " highlighting options
