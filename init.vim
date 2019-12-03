@@ -110,9 +110,6 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-hi search ctermfg=black
-hi search ctermbg=blue
-
 " trigger autoread
 au FocusGained,BufEnter * :silent! !
 au FocusLost,WinLeave * :silent! noautocmd w
