@@ -82,6 +82,9 @@ nnoremap <Leader><Left> 10<C-w><
 " mapping for yanking file name to register
 nnoremap cp :let @* = expand("%:p")<CR>
 
+" mapping for repeating the last macro
+nnoremap , @@
+
 " share clipboard between terminals
 set clipboard+=unnamedplus
 
@@ -109,6 +112,10 @@ map g# <Plug>(incsearch-nohl-g#)
 
 hi search ctermfg=black
 hi search ctermbg=blue
+
+" trigger autoread
+au FocusGained,BufEnter * :silent! !
+au FocusLost,WinLeave * :silent! noautocmd w
 
 " deoplete config
 let g:deoplete#enable_at_startup = 1
