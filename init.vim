@@ -31,7 +31,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " NERDTree mappings
-nnoremap <C-o> :NERDTreeFind<CR>
+nnoremap <C-o> :NERDTreeFind<CR>zz
 nnoremap <C-n> :NERDTree<CR>
 
 let g:NERDTreeIgnore = ['^node_modules$']
