@@ -28,11 +28,11 @@ chpwd() ls
 
 # exports
 export ZSH="$HOME/.oh-my-zsh"
-export NVIM_CONFIG="$HOME/dotfiles/init.vim"
+export NVIM_CONFIG="$HOME/Github/dotfiles/init.vim"
 
 # source bash files
 source $ZSH/oh-my-zsh.sh
-source ~/dotfiles/zsh/work_zsh.sh
+source ~/Github/dotfiles/zsh/work_zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # custom source function
@@ -45,3 +45,8 @@ alias sa=source-all
 # remap <Ctrl-f> and <Ctrl-g> to use fzf; requires ~/.fzf.zsh to be sourced
  bindkey '^F' fzf-history-widget
  bindkey '^G' fzf-file-widget
+
+ # add pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
