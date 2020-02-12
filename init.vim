@@ -48,8 +48,8 @@ map F <Plug>Sneak_S
 nnoremap oo o<Esc>
 nnoremap OO O<Esc>
 nnoremap <leader>dd "_dd
-tnoremap jj <C-\><C-n>
 inoremap jj <Esc>`^
+inoremap JJ <Esc>`^
 
 " mappings for setting indentation
 nnoremap t2 :set tabstop=2 shiftwidth=2 expandtab<CR>
@@ -119,7 +119,7 @@ let g:deoplete#enable_at_startup = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " appearance
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=2 shiftwidth=2 expandtab
 set hlsearch
 set ruler
 set number
