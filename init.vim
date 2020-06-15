@@ -52,6 +52,9 @@ nnoremap <leader>dd "_dd
 inoremap jj <Esc>`^
 inoremap JJ <Esc>`^
 
+" mapping to reselect and re-yank any text pasted in visual mode
+xnoremap p pgvy
+
 " mappings for setting indentation
 nnoremap t2 :set tabstop=2 shiftwidth=2 expandtab<CR>
 nnoremap t4 :set tabstop=4 shiftwidth=4 expandtab<CR>
