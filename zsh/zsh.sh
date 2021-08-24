@@ -50,3 +50,5 @@ alias sa=source-all
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+PROMPT='%{$fg[yellow]%}[%D{%T}] '$PROMPT
