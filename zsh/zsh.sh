@@ -1,3 +1,5 @@
+GITHUB_DIR="$HOME/Github"
+
 # zsh variables
 ZSH_THEME="robbyrussell"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=blue,bold"
@@ -29,26 +31,27 @@ chpwd() ls
 # exports
 export ZSH="$HOME/.oh-my-zsh"
 export NVIM_CONFIG="$HOME/Github/dotfiles/init.vim"
+export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/'"
 
-# source bash files
+# source zsh files
 source $ZSH/oh-my-zsh.sh
-source ~/Github/dotfiles/zsh/work_zsh.sh
+[ -f ~/Github/dotfiles/zsh/work_zsh.sh ] && source ~/Github/dotfiles/zsh/work_zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# custom source function
+# custom source function which propagates dotfiles to needed locations
 function source-all() {
+    cat $GITHUB_DIR/dotfiles/init.vim > $HOME/.config/nvim/init.vim
+    cat $GITHUB_DIR/dotfiles/.tmux.conf > $HOME/.tmux.conf
     source $HOME/.zshrc
     tmux source-file $HOME/.tmux.conf
+    nvim +source +qa
+    nvim --headless +PlugInstall +qa
+    nvim +UpdateRemotePlugins +qa
 }
 alias sa=source-all
 
 # remap <Ctrl-f> and <Ctrl-g> to use fzf; requires ~/.fzf.zsh to be sourced
  bindkey '^F' fzf-history-widget
  bindkey '^G' fzf-file-widget
-
- # add pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
 
 PROMPT='%{$fg[yellow]%}[%D{%T}] '$PROMPT

@@ -36,6 +36,7 @@ nnoremap <C-o> :NERDTreeFind<CR>zz
 nnoremap <C-n> :NERDTree<CR>
 
 let g:NERDTreeIgnore = ['^node_modules$']
+let NERDTreeShowHidden = 1
 
 " fzf mappings
 nnoremap <C-f> :Rg<CR>
