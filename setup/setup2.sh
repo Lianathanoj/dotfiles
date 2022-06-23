@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 ################################################################################################
-# Description:  This bootstraps and configures my dev environment preferences.
+# Description:  This bootstraps and configures my dev environment preferences for neovim, tmux,
+#               pyenv, fzf, ripgrep, zsh, etc.
 # Instructions: This script is automatically ran at the end of setup1.sh's completion and
 #               references local dotfiles pulled from Github.
 ################################################################################################
