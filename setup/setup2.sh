@@ -16,6 +16,22 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # download tmux
 brew install tmux
 
+# download nodenv
+brew install nodenv
+grep -qF 'eval "$(nodenv init -)"' $HOME/.zshrc || echo 'eval "$(nodenv init -)"' >> $HOME/.zshrc
+zsh $HOME/.zshrc
+nodenv install 18.4.0
+nodenv global 18.4.0
+
+# download goenv
+brew install goenv --head
+grep -qF 'eval "$(goenv init -)"' $HOME/.zshrc || echo 'eval "$(goenv init -)"' >> $HOME/.zshrc
+grep -qF 'export PATH="$GOROOT/bin:$PATH"' $HOME/.zshrc || echo 'export PATH="$GOROOT/bin:$PATH"' >> $HOME/.zshrc
+grep -qF 'export PATH="$PATH:$GOPATH/bin"' $HOME/.zshrc || echo 'export PATH="$PATH:$GOPATH/bin"' >> $HOME/.zshrc
+zsh $HOME/.zshrc
+goenv install 1.18.0
+goenv global 1.18.0
+
 # download Python build dependencies
 brew install openssl readline sqlite3 xz zlib tcl-tk
 
@@ -28,7 +44,7 @@ grep -qF 'eval "$(pyenv init -)"' $HOME/.zshrc || echo 'eval "$(pyenv init -)"' 
 # download pyenv-virtualenv
 brew install pyenv-virtualenv
 grep -qF 'eval "$(pyenv virtualenv-init -)"' $HOME/.zshrc || echo 'eval "$(pyenv virtualenv-init -)"' >> $HOME/.zshrc
-exec "$SHELL"
+zsh $HOME/.zshrc
 
 # create virtualenv for Python versions 2 and 3 used with pyenv
 pyenv install 2.7.18
