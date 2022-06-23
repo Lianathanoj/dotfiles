@@ -44,4 +44,4 @@ read -p 'Press any key to continue once you have added the SSH key to your Githu
 # clone my dotfiles repo into the local Github directory
 git clone git@github.com:Lianathanoj/dotfiles.git $GITHUB_DIR/dotfiles
 
-bash $GITHUB_DIR/dotfiles/setup2.sh
+bash $GITHUB_DIR/dotfiles/setup/setup2.sh
