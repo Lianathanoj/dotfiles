@@ -3,7 +3,7 @@
 ################################################################################################
 # Description:  This bootstraps and configures my dev environment preferences for neovim, tmux,
 #               pyenv, fzf, ripgrep, zsh, etc.
-# Instructions: This script is automatically ran at the end of setup1.sh's completion and
+# Instructions: This script is automatically ran at the end of setup1_mac.sh's completion and
 #               references local dotfiles pulled from Github.
 ################################################################################################
 
@@ -77,4 +77,4 @@ cat $GITHUB_DIR/dotfiles/.tmux.conf > $HOME/.tmux.conf
 git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/alias-tips
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/zsh-syntax-highlighting
-grep -qF "source '$GITHUB_DIR'/dotfiles/zsh/zsh.sh" $HOME/.zshrc || echo "source '$GITHUB_DIR'/dotfiles/zsh/zsh.sh" >> $HOME/.zshrc
+grep -qF "source $GITHUB_DIR/dotfiles/zsh/zsh.sh" $HOME/.zshrc || echo "source '$GITHUB_DIR'/dotfiles/zsh/zsh.sh" >> $HOME/.zshrc

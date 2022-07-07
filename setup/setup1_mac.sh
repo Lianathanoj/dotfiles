@@ -4,14 +4,14 @@
 # Description:  This creates a local Github directory, downloads homebrew, downloads git, sets up
 #               git credentials, and clones my dotfiles.
 # Instructions: Navigate to https://github.com/Lianathanoj/dotfiles/setup/setup1.sh, download the
-#               file, and run `bash setup1.sh`. You'll need to intermittently type in certain
+#               file, and run `bash setup1_mac.sh`. You'll need to intermittently type in certain
 #               information such as password, Github credentials, etc. We need to do this in this
 #               manner because some steps in setup2.sh require brew and git to be installed. This
 #               script tries to be idempotent in that you can run it multiple times with the same
 #               outcome.
 ###################################################################################################
 
-# # create Github directory if it doesn't already exist
+# create Github directory if it doesn't already exist
 GITHUB_DIR=$HOME/Github
 mkdir -p $GITHUB_DIR
 

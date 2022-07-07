@@ -43,6 +43,7 @@ function source-all() {
     cat $GITHUB_DIR/dotfiles/init.vim > $HOME/.config/nvim/init.vim
     cat $GITHUB_DIR/dotfiles/.tmux.conf > $HOME/.tmux.conf
     source $HOME/.zshrc
+    source ~/.zprofile
     tmux source-file $HOME/.tmux.conf
     nvim +source +qa
     nvim --headless +PlugInstall +qa
@@ -54,4 +55,6 @@ alias sa=source-all
  bindkey '^F' fzf-history-widget
  bindkey '^G' fzf-file-widget
 
-PROMPT='%{$fg[yellow]%}[%D{%T}] '$PROMPT
+ # have prompt show timestamp, user, and host. note that user and host are relevant
+ # for differentiating between local environment and cloud VM
+PROMPT='%{$fg[green]%}$USER@%{$fg[green]%}%M %{$fg[yellow]%}[%D{%T}] ${ret_status}'$PROMPT
