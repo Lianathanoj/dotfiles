@@ -41,7 +41,7 @@ source $ZSH/oh-my-zsh.sh
 # custom source function which propagates dotfiles to needed locations
 function source-all() {
     cat $GITHUB_DIR/dotfiles/init.vim > $HOME/.config/nvim/init.vim
-    cat $GITHUB_DIR/dotfiles/.tmux.conf > $HOME/.tmux.conf
+    cat $GITHUB_DIR/dotfiles/tmux/.tmux.conf > $HOME/.tmux.conf
     source $HOME/.zshrc
     source ~/.zprofile
     tmux source-file $HOME/.tmux.conf
