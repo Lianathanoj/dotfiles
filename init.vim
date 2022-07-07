@@ -13,7 +13,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'justinmk/vim-sneak'
-    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'sunaku/tmux-navigate'
 call plug#end()
 
 filetype plugin on
