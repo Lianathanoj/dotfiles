@@ -55,6 +55,10 @@ alias sa=source-all
  bindkey '^F' fzf-history-widget
  bindkey '^G' fzf-file-widget
 
- # have prompt show timestamp, user, and host. note that user and host are relevant
- # for differentiating between local environment and cloud VM
-PROMPT='%{$fg[green]%}$USER@%{$fg[green]%}%M %{$fg[yellow]%}[%D{%T}] ${ret_status}'$PROMPT
+# have prompt show timestamp, user, and host. we use different colors for differentiating
+# between our local environment and cloud VM
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    PROMPT='%{$fg[red]%}$USER@%{$fg[red]%}%M %{$fg[yellow]%}[%D{%T}] ${ret_status}'$PROMPT
+else
+    PROMPT='%{$fg[green]%}$USER@%{$fg[green]%}%M %{$fg[yellow]%}[%D{%T}] ${ret_status}'$PROMPT
+fi

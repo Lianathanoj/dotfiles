@@ -42,6 +42,13 @@ let NERDTreeShowHidden = 1
 nnoremap <C-f> :Rg<CR>
 nnoremap <C-g> :Files<CR>
 
+" open fzf window in tmux popup window
+if exists('$TMUX')
+  let g:fzf_layout = { 'tmux': '-p90%,60%' }
+else
+  let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+endif
+
 " sneak mappings
 map f <Plug>Sneak_s
 map F <Plug>Sneak_S
