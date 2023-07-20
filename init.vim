@@ -76,10 +76,10 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 
 " mappings for scrolling up and down quickly
-nnoremap J 5j
-nnoremap K 5k
-vnoremap J 5j
-vnoremap K 5k
+nnoremap J 5jzz
+nnoremap K 5kzz
+vnoremap J 5jzz
+vnoremap K 5kzz
 
 " mappings for splitting windows
 nnoremap <C-w>- <C-w>s
