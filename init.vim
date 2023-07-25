@@ -10,7 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'haya14busa/incsearch.vim'
     Plug 'sheerun/vim-polyglot'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'justinmk/vim-sneak'
     Plug 'christoomey/vim-tmux-navigator'
@@ -76,10 +76,10 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 
 " mappings for scrolling up and down quickly
-nnoremap J 5jzz
-nnoremap K 5kzz
-vnoremap J 5jzz
-vnoremap K 5kzz
+nnoremap J 5j
+nnoremap K 5k
+vnoremap J 5j
+vnoremap K 5k
 
 " mappings for splitting windows
 nnoremap <C-w>- <C-w>s
@@ -131,6 +131,7 @@ let g:deoplete#enable_at_startup = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " appearance
+set scrolloff=15
 set tabstop=2 shiftwidth=2 expandtab
 set hlsearch
 set ruler
@@ -140,6 +141,7 @@ set smartcase
 set cursorline
 set number relativenumber
 set nu rnu
+
 
 " open new split panes to the bottom right
 set splitbelow
