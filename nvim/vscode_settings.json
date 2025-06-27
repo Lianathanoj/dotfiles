@@ -1,0 +1,25 @@
+{
+    "vscode-neovim.compositeKeys": {
+        "jj": {
+            "command": "vscode-neovim.escape",
+        },
+        "JJ": {
+            "command": "vscode-neovim.escape",
+        },
+        "oo": {
+            "command": "vscode-neovim.lua",
+            "args": [
+                "o",
+                "local code = require('vscode')",
+                "code.action('vscode-neovim.escape')",
+            ]
+        },
+        "OO": {
+            "command": "vscode-neovim.lua",
+            "args": [
+                "O",
+                "local code = require('vscode')",
+                "code.action('vscode-neovim.escape')",
+            ]
+        },
+}

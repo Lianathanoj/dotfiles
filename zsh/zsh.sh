@@ -30,7 +30,7 @@ chpwd() ls
 
 # exports
 export ZSH="$HOME/.oh-my-zsh"
-export NVIM_CONFIG="$HOME/Github/dotfiles/init.vim"
+export NVIM_CONFIG="$HOME/Github/dotfiles/nvim/init.vim"
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/'"
 
 # source zsh files
@@ -40,7 +40,9 @@ source $ZSH/oh-my-zsh.sh
 
 # custom source function which propagates dotfiles to needed locations
 function source-all() {
-    cat $GITHUB_DIR/dotfiles/init.vim > $HOME/.config/nvim/init.vim
+    cat $GITHUB_DIR/dotfiles/nvim/default_settings.vim > $HOME/.config/nvim/default_settings.vim
+    cat $GITHUB_DIR/dotfiles/nvim/vscode_settings.vim > $HOME/.config/nvim/vscode_settings.vim
+    cat $GITHUB_DIR/dotfiles/nvim/init.vim > $HOME/.config/nvim/init.vim
     cat $GITHUB_DIR/dotfiles/.tmux.conf > $HOME/.tmux.conf
     source $HOME/.zshrc
     source ~/.zprofile
