@@ -1,3 +1,4 @@
+// Configure your composite key bindings in this file for the vscode-neovim extension
 {
     "vscode-neovim.compositeKeys": {
         "jj": {

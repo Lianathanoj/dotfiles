@@ -1,0 +1,23 @@
+// Place your key bindings in this file to override the defaults for the vscode-neovim extension
+[
+    {
+        "key": "cmd+i",
+        "command": "composerMode.agent"
+    },
+    {
+        "key": "space c c",
+        "command": "editor.action.commentLine",
+        "when": "neovim.mode == normal && editorTextFocus"
+    },
+    {
+        "key": "space c c",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "editor.action.commentLine",
+                "vscode-neovim.escape"
+            ]
+        },
+        "when": "neovim.mode == visual && editorTextFocus"
+    }
+]
